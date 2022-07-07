@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Checking"
 chmod +x futurerestore
 chmod +x install.sh
 chmod +x main.sh
