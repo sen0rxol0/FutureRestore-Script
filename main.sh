@@ -5,7 +5,7 @@ clear
 echo "Please drag and drop SHSH file into terminal:"
 read shsh
 
-if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ]
+if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ];
 then
     echo "File verified as SHSH2 file, continuing ..."
 else
@@ -47,7 +47,7 @@ else
     echo "Supported device found: $device"
 fi
 
-if [ "$device" == "iPhone10,3" ] || [ "$device" == "iPhone10,6" ]
+if [ "$device" == "iPhone10,3" ] || [ "$device" == "iPhone10,6" ];
 then
     if [ ! -d ./ipwndfuA11 ]; then
       git clone https://github.com/MatthewPierson/ipwndfuA11.git
@@ -69,7 +69,7 @@ do
     sleep 2
     echo "The script will run ipwndfu again and again until the device is in pwned DFU mode !"
     ./ipwndfu -p
-    check=$(../files/lsusb | grep -c "checkm8")
+    check=$(../files/irecovery -q | grep -c "checkm8")
 done
 
 sleep 1
