@@ -11,6 +11,7 @@
 - iPad Mini 3
 - iPad 7th Gen (2019)
 - iPod Touch 7th Gen (2019)
+
 More may come :)
 
 ## How to use:
