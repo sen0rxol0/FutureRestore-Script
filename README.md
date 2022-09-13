@@ -1,48 +1,40 @@
 # FutureRestore Script
 
-# Supported Devices:
-
-iPhone 5s
-
-iPhone 7
-
-iPhone 7 Plus
-
-iPhone X
-
-iPad Air 1
-
-iPad Mini 2
-
-iPad 6th Gen (2018)
-
-iPad Mini 3
-
-iPad 7th Gen (2019)
-
-iPod Touch 7th Gen (2019)
-
+## Supported Devices:
+- iPhone 5s
+- iPhone 7
+- iPhone 7 Plus
+- iPhone X
+- iPad Air 1
+- iPad Mini 2
+- iPad 6th Gen (2018)
+- iPad Mini 3
+- iPad 7th Gen (2019)
+- iPod Touch 7th Gen (2019)
 More may come :)
 
-# How to use:
+## How to use:
 
-Step 0.1) Download device SHSH blob from a SHSH Blobs saver (Have it ready if already downloaded)
+0.1. Have a SHSH blob from a SHSH Blobs saver ready
 
-Step 0.2) Download device IPSW for SHSH blob
+0.2. Download a IPSW with same firmare version as SHSH blob
 
-Step 0.3) Clone this git repository
+0.3. Clone this git repository
 
-Step 1) Open terminal cd into the folder and then run chmod +x restore.sh
+1. Open the Terminal `cd` into the folder and then run:
 
-Step 2) Run ./restore.sh and follow the directions
+```
+chmod +x restore.sh
+./restore.sh
+```
 
-# Note:
+## Note:
 
 Make sure the SEP is compatible with the version you are trying to restore.
 
 This will wipe all of your data.
 
-# Sep Compatibility
+## Sep Compatibility
 
 For a7 you can downgrade iOS 11.3-12.4.4
 
