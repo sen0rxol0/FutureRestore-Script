@@ -40,7 +40,7 @@ For a7 you can downgrade iOS 11.3-12.4.4
 
 For all other devices you can go only to 13.3 asfaik
 
-# Credits:
+## Credits:
 
 MatthewPierson for the Checkm8-nonce-setter
 
