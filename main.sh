@@ -89,13 +89,17 @@ echo "Entering PWNREC mode"
 cd ..
 cd files
 
-if [ "$device" == "iPhone10,3" ] || [ "$device" == "iPhone10,6" ]; then
-    ./irecovery -f junk.txt
+if [ "$device" == "iPhone10,3" ] || [ "$device" == "iPhone10,6" ];
+then
+    echo "This is a text to make iPhone10,3/6 device boot" > text.txt
+    ./irecovery -f text.txt
+    rm text.txt
 fi
 
 ./irecovery -f ibss.$device.img4
 
-if [ "$device" == "iPhone6,1" ] || [ "$device" == "iPhone6,2" ]; then
+if [ "$device" == "iPhone6,1" ] || [ "$device" == "iPhone6,2" ];
+then
     ./irecovery -f ibec.$device.img4
 fi
 
