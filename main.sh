@@ -128,5 +128,5 @@ echo "New nonce"
 
 echo "Done setting SHSH nonce to device"
 echo ""
-echo "futurerestore can now restore to the firmware that SHSH is vaild for!"
+echo "futurerestore can now restore to the firmware that SHSH is valid for!"
 echo "Assuming that signed SEP and Baseband are compatible!"
