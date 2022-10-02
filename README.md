@@ -18,7 +18,7 @@ More may come :)
 
 0.1. Have a SHSH blob from a SHSH Blobs saver ready
 
-0.2. Download a IPSW with same firmare version as SHSH blob
+0.2. Download a IPSW with same firmware version as saved SHSH blob
 
 0.3. Clone this git repository
 
