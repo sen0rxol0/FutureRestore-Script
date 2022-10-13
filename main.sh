@@ -24,7 +24,7 @@ _cleanp() {
 clear
 _cleanp
 shsh=$1
-cp -v $shsh ./files/blob.shsh2
+cp $shsh ./files/blob.shsh2
 
 _print_yellow "Getting generator from SHSH"
 generator=$(cat $shsh | grep "<string>0x" | cut -c10-27)
