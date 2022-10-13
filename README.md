@@ -12,10 +12,11 @@
 - iPad 7th Gen (2019)
 - iPod Touch 7th Gen (2019)
 
-## Requirements
+## Requirements:
 
-- Have a SHSH blob from a SHSH Blobs saver ready
-- Download a IPSW with same firmware version as the saved SHSH blob
+- SHSH blob from a SHSH Blobs saver.
+- Downloaded IPSW file with same firmware version as the saved SHSH blob.
+- macOS system
 
 ## How to use:
 
