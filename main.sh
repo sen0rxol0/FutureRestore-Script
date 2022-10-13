@@ -18,24 +18,8 @@ printf "$color_yellow****** %s$color_reset\n" "$1"
 }
 
 clear
-
-if [ -z "$1" ]
-then
-  _print_blue "Please drag and drop SHSH file into terminal:"
-  read shsh
-else
-  shsh=$1
-fi
-
-if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ];
-then
-    _print_yellow "File verified as SHSH2 file, continuing ..."
-else
-    _print_red "[Exiting] Please ensure that the file extension is either .shsh or .shsh2 and retry"
-    exit 4
-fi
-
 rm blob.shsh2
+shsh=$1
 cp -v $shsh ./blob.shsh2
 
 _print_yellow "Getting generator from SHSH"
