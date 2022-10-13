@@ -1,115 +1,115 @@
 #!/bin/bash
 
-rm blob.shsh2
-clear
-echo "Please drag and drop SHSH file into terminal:"
-read shsh
+color_red="\e[1;91m"
+color_yellow="\e[1;93m"
+color_blue="\e[1;96m"
+color_reset="\e[0m"
 
-if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ];
+_print_blue() {
+printf "$color_blue****** %s$color_reset\n" "$1"
+}
+
+_print_red() {
+printf "$color_red****** %s$color_reset\n" "$1"
+}
+
+_print_yellow() {
+printf "$color_yellow****** %s$color_reset\n" "$1"
+}
+
+clear
+
+if [ -z "$1" ]
 then
-    echo "File verified as SHSH2 file, continuing ..."
+  _print_blue "Please drag and drop SHSH file into terminal:"
+  read shsh
 else
-    echo "[Exiting] Please ensure that the file extension is either .shsh or .shsh2 and retry"
-    exit
+  shsh=$1
 fi
 
+if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ]
+then
+    _print_yellow "File verified as SHSH2 file, continuing ..."
+else
+    _print_red "[Exiting] Please ensure that the file extension is either .shsh or .shsh2 and retry"
+    exit 4
+fi
+
+rm blob.shsh2
 cp -v $shsh ./blob.shsh2
 
-echo "Getting generator from SHSH"
-
-generator=$(grep "<string>0x" $shsh | cut -c10-27)
+_print_yellow "Getting generator from SHSH"
+generator=$(cat $shsh | grep "<string>0x" | cut -c10-27)
 
 if [ -z "$generator" ]
 then
-    echo "[Exiting] SHSH does not contain a generator!"
     echo "SHSH saved with https://shsh.host (will show generator) or https://tsssaver.1conan.com (in noapnonce folder) are acceptable"
-    exit
-else
-    echo "SHSH generator is: $generator"
+    _print_red "[Exiting] SHSH does not contain a generator!"
+    exit 3
 fi
 
-echo "Please connect device in DFU mode."
+echo "SHSH generator is: $generator"
+_print_blue "Please connect device in DFU mode."
 read -p "Press ENTER when ready to continue <-"
 
-device=$(./files/irecovery -q | grep "PRODUCT" | cut -f 2 -d ":" | cut -c 2-)
+device=$(./irecovery -q | grep "PRODUCT" | cut -f 2 -d ":" | cut -c 2-)
 
-if [ -z "$device" ]
-then
-    echo "[Exiting] No device found."
-    exit
-else
-    if [ ! -e ./files/ibss.$device.img4 ]
-    then
-      echo "[Exiting] Unsupported device."
-      exit
-    fi
-
-    echo "Supported device found: $device"
+if [ -z "$device" ];then
+    _print_red "[Exiting] No device found."
+    exit 2
 fi
 
-if [ "$device" == "iPhone10,3" ] || [ "$device" == "iPhone10,6" ];
-then
-    if [ ! -d ./ipwndfuA11 ]; then
-      git clone https://github.com/MatthewPierson/ipwndfuA11.git
+echo "Found device: $device"
+_print_yellow "Extracting iBSS, iBEC files for device"
+dir_tmp=/tmp/.futurerestore_script_staging
+rm -rf $dir_tmp/
+mkdir $dir_tmp
+unzip -q $2 -x *.dmg -d $dir_tmp/
+
+device_model=$(./irecovery -q | grep "MODEL" | cut -f 2 -d ":" | cut -c 2-)
+manifest_index=0
+ret=0
+until [[ $ret != 0 ]]; do
+  manifest=$(plutil -extract "BuildIdentities.$manifest_index.Manifest" xml1 -o - $dir_tmp/BuildManifest.plist)
+  ret=$?
+  if [ $ret == 0 ]; then
+    count_manifest=$(echo $manifest | grep -c $device_model)
+    if [ $count_manifest == 0 ]; then
+      ((manifest_index++))
+    else
+      ret=1
     fi
-
-    cd ipwndfuA11
-else
-    if [ ! -d ./ipwndfu_public ]; then
-      git clone https://github.com/MatthewPierson/ipwndfu_public.git
-    fi
-
-    cd ipwndfu_public
-fi
-
-echo "Starting ipwndfu"
-check=0
-until [ $check == 1 ]
-do
-    sleep 2
-    echo "The script will run ipwndfu again and again until the device is in pwned DFU mode !"
-    ./ipwndfu -p
-    check=$(../files/irecovery -q | grep -c "checkm8")
+  fi
 done
 
-sleep 1
-echo "Patching signature checks"
-
-if [ "$device" == "iPhone10,3" ] || [ "$device" == "iPhone10,6" ]
-then
-    ./ipwndfu --patch
-    sleep 0.1
-else
-    python rmsigchks.py
-    sleep 1
+if [ $ret != 1 ]; then
+	exit 5
 fi
 
-echo "Device is now in pwned DFU mode with signature checks removed (Thanks to Linus Henze & akayn)"
-echo "Entering PWNREC mode"
-cd ..
-cd files
+_extractFromManifest()
+{
+    echo $(plutil -extract "BuildIdentities.$manifest_index.Manifest.$1.Info.Path" xml1 -o - $dir_tmp/BuildManifest.plist | xmllint -xpath '/plist/string/text()' -)
+}
 
-if [ "$device" == "iPhone10,3" ] || [ "$device" == "iPhone10,6" ];
-then
-    echo "This is a text to make iPhone10,3/6 device boot" > text.txt
-    ./irecovery -f text.txt
-    rm text.txt
-fi
-
-./irecovery -f ibss.$device.img4
-
-if [ "$device" == "iPhone6,1" ] || [ "$device" == "iPhone6,2" ];
-then
-    ./irecovery -f ibec.$device.img4
-fi
-
-if [ "$device" == "iPad4,1" ] || [ "$device" == "iPad4,2" ] || [ "$device" == "iPad4,3" ] || [ "$device" == "iPad4,4" ] || [ "$device" == "iPad4,5" ] || [ "$device" == "iPad4,6" ] || [ "$device" == "iPad4,7" ] || [ "$device" == "iPad4,8" ] || [ "$device" == "iPad4,9" ]; then
-    ./irecovery -f ibec.$device.img4
-fi
-
-echo "Entered PWNREC mode"
+ibss=$(_extractFromManifest "iBSS")
+ibec=$(_extractFromManifest "iBEC")
+echo "iBSS: $ibss"
+echo "iBEC: $ibec"
+_print_yellow "Getting files ready to boot"
+rm ibss.* ibec.*
+./gaster/gaster decrypt $dir_tmp/$ibss ./ibss.dec
+./gaster/gaster decrypt $dir_tmp/$ibec ./ibec.dec
+./kairos/kairos ./ibss.dec ./ibss.patched -n
+./kairos/kairos ./ibec.dec ./ibec.patched -n
+img4tool -e -s $shsh -m IM4M
+img4 -i ./ibss.patched -o ./ibss.img4 -A -M IM4M -T ibss
+img4 -i ./ibec.patched -o ./ibec.img4 -A -M IM4M -T ibec
+./gaster/gaster load ./ibss.img4 ./ibec.img4
+_print_yellow "Loaded patched images"
 sleep 4
-echo "Current nonce"
+_print_blue "Entered PWNREC mode"
+sleep 4
+_print_yellow "Current nonce"
 ./irecovery -q | grep "NONC"
 echo "Setting nonce to $generator"
 ./irecovery -c "setenv com.apple.System.boot-nonce $generator"
@@ -121,12 +121,9 @@ sleep 1
 ./irecovery -c "saveenv"
 sleep 1
 ./irecovery -c "reset"
-echo "Waiting for device to restart into recovery mode"
+_print_yellow "Waiting for device to restart into recovery mode"
 sleep 7
-echo "New nonce"
+_print_yellow "New nonce"
 ./irecovery -q | grep "NONC"
 
-echo "Done setting SHSH nonce to device"
-echo ""
-echo "futurerestore can now restore to the firmware that SHSH is valid for!"
-echo "Assuming that signed SEP and Baseband are compatible!"
+exit 0
