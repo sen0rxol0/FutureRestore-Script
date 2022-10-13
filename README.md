@@ -48,3 +48,5 @@ xerub for img4lib
 0x7ff for gaster
 
 dayt0n for kairos
+
+sen0rxol0 for the improvement
