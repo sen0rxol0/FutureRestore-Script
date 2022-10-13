@@ -99,7 +99,7 @@ _print_yellow "Getting files ready to boot"
 rm ibss.* ibec.*
 ./gaster/gaster decrypt $dir_tmp/$ibss ./ibss.dec
 ./gaster/gaster decrypt $dir_tmp/$ibec ./ibec.dec
-./kairos/kairos ./ibss.dec ./ibss.patched -n
+./kairos/kairos ./ibss.dec ./ibss.patched
 ./kairos/kairos ./ibec.dec ./ibec.patched -n
 img4tool -e -s $shsh -m IM4M
 img4 -i ./ibss.patched -o ./ibss.img4 -A -M IM4M -T ibss
