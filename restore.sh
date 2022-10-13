@@ -82,4 +82,5 @@ then
   exit
 fi
 
+clear
 printf "\e[1;96m%s\e[0m\n" "DONE!"
