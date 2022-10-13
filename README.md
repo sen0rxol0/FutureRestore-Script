@@ -15,9 +15,7 @@
 ## Requirements
 
 - Have a SHSH blob from a SHSH Blobs saver ready
-
-= Download a IPSW with same firmware version as the saved SHSH blob
-
+- Download a IPSW with same firmware version as the saved SHSH blob
 
 ## How to use:
 
