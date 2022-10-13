@@ -83,4 +83,5 @@ then
 fi
 
 clear
+sleep 2
 printf "\e[1;96m%s\e[0m\n" "DONE!"
