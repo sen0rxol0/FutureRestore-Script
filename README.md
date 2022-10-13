@@ -26,6 +26,9 @@
 
 ```
 chmod +x restore.sh 
+```
+
+```
 ./restore.sh <SHSH> <IPSW>
 ```
 
