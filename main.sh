@@ -102,6 +102,7 @@ rm ibss.* ibec.* apticket.der
 ./gaster/gaster decrypt $dir_tmp/$ibec ./ibec.dec
 ./kairos/kairos ./ibss.dec ./ibss.patched
 ./kairos/kairos ./ibec.dec ./ibec.patched -n
+# Thanks to: https://github.com/Ralph0045/SSH-Ramdisk-Maker-and-Loader/blob/a2ad9a948342106a590bb5444694aa272a5cf1a0/Ramdisk_Maker.sh#L159
 plutil -extract "ApImg4Ticket" xml1 -o - *.shsh2 | xmllint -xpath '/plist/data/text()' - | base64 -D > apticket.der
 img4 -i ./ibss.patched -o ./ibss.img4 -A -M apticket.der -T ibss
 img4 -i ./ibec.patched -o ./ibec.img4 -A -M apticket.der -T ibec
