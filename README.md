@@ -31,9 +31,9 @@ chmod +x restore.sh
 
 ## Note:
 
-Make sure the SEP is compatible with the firmware version you are trying to restore.
+Make sure the SEP is compatible with the firmware version being restored.
 
-> WARNING: This will wipe all of your data.
+> WARNING: This restore will erase your device data.
 
 ## Credits:
 
