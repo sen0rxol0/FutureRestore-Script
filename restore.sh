@@ -1,11 +1,5 @@
 #!/bin/bash
 
-if [ -z $2 ]
-then
-  echo "USAGE: $0 <Path to SHSH file> <Path to IPSW file>"
-  exit
-fi
-
 if [ ! -d ./gaster ]
 then
   git clone -q https://github.com/0x7ff/gaster.git
@@ -32,15 +26,34 @@ if [ ! -e "/usr/local/bin/img4" ]; then
   xattr -d com.apple.quarantine /usr/local/bin/img4
 fi
 
+if [ -z "$2" ]
+then
+  echo "USAGE: $0 <Path to SHSH file> <Path to IPSW file>"
+  exit
+fi
+
+if [ -z "$1" ]
+then
+  echo "Please drag and drop SHSH file into terminal:"
+  read shsh
+else
+  shsh=$1
+fi
+
+if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ];
+then
+    echo "SHSH file verified as valid, continuing ..."
+else
+    echo "[Exiting] Please ensure that the file extension is either .shsh or .shsh2 and retry"
+    exit
+fi
+
 mv futurerestore282 futurerestore
-xattr -d com.apple.quarantine irecovery 1> /dev/null
-xattr -d com.apple.quarantine futurerestore 1> /dev/null
 chmod +x irecovery
 chmod +x futurerestore
 chmod +x install.sh
 chmod +x main.sh
-clear
-echo "Nonce-setter is starting"
+printf "\e[1;96m%s\e[0m\n" "Nonce-setter is starting"
 sleep 5
 ./main.sh $1 $2
 
@@ -52,12 +65,11 @@ fi
 
 clear
 echo "Done setting SHSH nonce generator to device"
-echo ""
 echo "futurerestore can now restore to the firmware version that SHSH is valid for!"
 echo "Assuming that signed SEP and Baseband are compatible!"
 sleep 5
 echo ""
-echo "FutureRestore is starting"
+printf "\e[1;96m%s\e[0m\n" "FutureRestore is starting"
 sleep 5
 ./install.sh $2
 
@@ -67,5 +79,4 @@ then
   exit
 fi
 
-echo "DONE!"
-
+printf "\e[1;96m%s\e[0m\n" "DONE!"
