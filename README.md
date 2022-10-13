@@ -12,34 +12,26 @@
 - iPad 7th Gen (2019)
 - iPod Touch 7th Gen (2019)
 
-More may come :)
-
 ## How to use:
 
-0.1. Have a SHSH blob from a SHSH Blobs saver ready
+1. Have a SHSH blob from a SHSH Blobs saver ready
 
-0.2. Download a IPSW with same firmware version as saved SHSH blob
+2. Download a IPSW with same firmware version as the saved SHSH blob
 
-0.3. Clone this git repository
+3. Clone this git repository
 
-1. Open the Terminal `cd` into the folder and then run:
+4. Open the Terminal `cd` into directory and then run:
 
 ```
-chmod +x restore.sh
-./restore.sh
+chmod +x restore.sh 
+./restore.sh <SHSH> <IPSW>
 ```
 
 ## Note:
 
-Make sure the SEP is compatible with the version you are trying to restore.
+Make sure the SEP is compatible with the firmware version you are trying to restore.
 
-This will wipe all of your data.
-
-## Sep Compatibility
-
-For a7 you can downgrade iOS 11.3-12.4.4
-
-For all other devices you can go only to 13.3 asfaik
+> WARNING: This will wipe all of your data.
 
 ## Credits:
 
