@@ -43,6 +43,8 @@ tihmstar for FutureRestore, img4tool
 
 80036nd for this tool ;)
 
+xerub for img4lib
+
 0x7ff for gaster
 
 dayt0n for kairos
