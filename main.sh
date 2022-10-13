@@ -82,7 +82,8 @@ until [[ $ret != 0 ]]; do
   fi
 done
 
-if [ $ret != 1 ]; then
+if [ $ret != 1 ]
+then
   exit 1
 fi
 
