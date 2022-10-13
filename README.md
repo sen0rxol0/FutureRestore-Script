@@ -42,3 +42,7 @@ MatthewPierson for the Checkm8-nonce-setter
 Tihmstar for FutureRestore
 
 80036nd for this tool ;)
+
+0x7ff for gaster
+
+dayt0n for kairos
