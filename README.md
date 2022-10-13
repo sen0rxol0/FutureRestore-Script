@@ -2,8 +2,8 @@
 
 ## Supported Devices:
 - iPhone 5s
-- iPhone 7
-- iPhone 7 Plus
+- iPhone 7 (Plus)
+- iPhone 8 (Plus)
 - iPhone X
 - iPad Air 1
 - iPad Mini 2
