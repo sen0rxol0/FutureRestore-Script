@@ -57,7 +57,7 @@ printf "\e[1;96m%s\e[0m\n" "Nonce-setter is starting"
 sleep 5
 ./main.sh $1 $2
 
-if [[ $? -ne 0 ]]
+if [ $? -ne 0 ]
 then
   echo "ERROR: Device is not ready to be restored!"
   exit
