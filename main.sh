@@ -17,12 +17,8 @@ _print_yellow() {
 printf "$color_yellow****** %s$color_reset\n" "$1"
 }
 
-_cleanp() {
-  rm -f ./files/*
-}
-
 clear
-_cleanp
+rm -f ./files/*
 shsh=$1
 cp $shsh ./files/blob.shsh2
 
