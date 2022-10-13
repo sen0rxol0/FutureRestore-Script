@@ -83,7 +83,7 @@ until [[ $ret != 0 ]]; do
 done
 
 if [ $ret != 1 ]; then
-	exit 5
+  exit 1
 fi
 
 _extractFromManifest()
