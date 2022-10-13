@@ -97,14 +97,14 @@ ibec=$(_extractFromManifest "iBEC")
 echo "iBSS: $ibss"
 echo "iBEC: $ibec"
 _print_yellow "Getting files ready to boot"
-rm ibss.* ibec.*
+rm ibss.* ibec.* apticket.der
 ./gaster/gaster decrypt $dir_tmp/$ibss ./ibss.dec
 ./gaster/gaster decrypt $dir_tmp/$ibec ./ibec.dec
 ./kairos/kairos ./ibss.dec ./ibss.patched
 ./kairos/kairos ./ibec.dec ./ibec.patched -n
-img4tool -e -s $shsh -m IM4M
-img4 -i ./ibss.patched -o ./ibss.img4 -A -M IM4M -T ibss
-img4 -i ./ibec.patched -o ./ibec.img4 -A -M IM4M -T ibec
+plutil -extract "ApImg4Ticket" xml1 -o - *.shsh2 | xmllint -xpath '/plist/data/text()' - | base64 -D > apticket.der
+img4 -i ./ibss.patched -o ./ibss.img4 -A -M apticket.der -T ibss
+img4 -i ./ibec.patched -o ./ibec.img4 -A -M apticket.der -T ibec
 ./gaster/gaster load ./ibss.img4 ./ibec.img4
 _print_yellow "Loaded patched images"
 sleep 4
