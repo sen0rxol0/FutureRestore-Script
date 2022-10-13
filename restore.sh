@@ -59,7 +59,7 @@ sleep 5
 
 if [ $? -ne 0 ]
 then
-  echo "ERROR: Device is not ready to be restored!"
+  echo "[Exiting] Device is not ready to be restored!"
   exit
 fi
 
@@ -75,7 +75,7 @@ sleep 5
 
 if [ $? -ne 0 ]
 then
-  echo "ERROR: FutureRestore failed to restore device!"
+  echo "[Exiting] FutureRestore failed to restore device!"
   exit
 fi
 
