@@ -5,7 +5,7 @@
 - iPad Air (1/2)
 - iPad Mini (2/3/4)
 - iPad (6th Gen/7th Gen/Pro)
-- iPod Touch 7th Gen (2019)
+- iPod Touch 7th Gen
 
 Maybe other devices not listed to ;)
 
