@@ -32,19 +32,6 @@ if [ ! -e "/usr/local/bin/img4" ]; then
   xattr -d com.apple.quarantine /usr/local/bin/img4
 fi
 
-if [ ! -e "/usr/local/bin/img4tool" ]; then
-  curl --progress-bar -OL https://github.com/tihmstar/img4tool/releases/download/197/buildroot_macos-latest.zip
-  unzip -q buildroot_macos-latest.zip
-  usr_local=buildroot_macos-latest/usr/local
-  mv $usr_local/bin/img4tool /usr/local/bin/
-  mv $usr_local/include/img4tool /usr/local/include/
-  mv $usr_local/lib/libimg4tool.* /usr/local/lib/
-  mv $usr_local/lib/pkgconfig/libimg4tool.pc /usr/local/lib/pkgconfig/
-  rm -rf buildroot_macos-latest/ && rm buildroot_macos-latest.zip;
-  chmod 755 /usr/local/bin/img4tool
-  xattr -d com.apple.quarantine /usr/local/bin/img4tool
-fi
-
 mv futurerestore282 futurerestore
 xattr -d com.apple.quarantine irecovery 1> /dev/null
 xattr -d com.apple.quarantine futurerestore 1> /dev/null
