@@ -23,6 +23,7 @@ then
   chmod 755 kairos/kairos
 fi
 
+mv futurerestore282 futurerestore
 xattr -d com.apple.quarantine irecovery 1> /dev/null
 xattr -d com.apple.quarantine futurerestore 1> /dev/null
 chmod +x irecovery
