@@ -90,7 +90,7 @@ _print_yellow "Getting files ready to boot"
 ./kairos/kairos ./files/ibss.dec ./files/ibss.patched
 ./kairos/kairos ./files/ibec.dec ./files/ibec.patched -n
 # Thanks to: https://github.com/Ralph0045/SSH-Ramdisk-Maker-and-Loader/blob/a2ad9a948342106a590bb5444694aa272a5cf1a0/Ramdisk_Maker.sh#L159
-plutil -extract "ApImg4Ticket" xml1 -o - ./files/*.shsh2 | xmllint -xpath '/plist/data/text()' - | base64 -D > ./files/apticket.der
+plutil -extract "ApImg4Ticket" xml1 -o - $shsh | xmllint -xpath '/plist/data/text()' - | base64 -D > ./files/apticket.der
 img4 -i ./files/ibss.patched -o ./files/ibss.img4 -A -M ./files/apticket.der -T ibss
 img4 -i ./files/ibec.patched -o ./files/ibec.img4 -A -M ./files/apticket.der -T ibec
 ./gaster/gaster load ./files/ibss.img4 ./files/ibec.img4
