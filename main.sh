@@ -28,7 +28,7 @@ generator=$(cat $shsh | grep "<string>0x" | cut -c10-27)
 if [ -z "$generator" ]
 then
     echo "SHSH saved with https://shsh.host (will show generator) or https://tsssaver.1conan.com (in noapnonce folder) are acceptable"
-    _print_red "[Exiting] SHSH does not contain a generator!"
+    _print_red "ERROR: SHSH does not contain a generator!"
     exit 3
 fi
 
@@ -39,7 +39,7 @@ read -p "Press ENTER when ready to continue <-"
 device=$(./irecovery -q | grep "PRODUCT" | cut -f 2 -d ":" | cut -c 2-)
 
 if [ -z "$device" ];then
-    _print_red "[Exiting] No device found."
+    _print_red "ERROR: No device found."
     exit 2
 fi
 
