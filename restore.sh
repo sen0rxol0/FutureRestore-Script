@@ -26,6 +26,8 @@ if [ ! -e "/usr/local/bin/img4" ]; then
   xattr -d com.apple.quarantine /usr/local/bin/img4
 fi
 
+clear
+
 if [ -z "$2" ]
 then
   echo "USAGE: $0 <Path to SHSH file> <Path to IPSW file>"
