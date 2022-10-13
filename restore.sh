@@ -53,7 +53,7 @@ sleep 5
 
 if [ $? -ne 0 ]
 then
-  echo "FutureRestore failed to restore device!"
+  echo "ERROR: FutureRestore failed to restore device!"
   exit
 fi
 
