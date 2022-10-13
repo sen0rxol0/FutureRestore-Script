@@ -107,7 +107,7 @@ img4 -i ./ibss.patched -o ./ibss.img4 -A -M apticket.der -T ibss
 img4 -i ./ibec.patched -o ./ibec.img4 -A -M apticket.der -T ibec
 ./gaster/gaster load ./ibss.img4 ./ibec.img4
 _print_yellow "Loaded patched images"
-sleep 4
+sleep 1
 _print_blue "Entered PWNREC mode"
 sleep 4
 _print_yellow "Current nonce"
