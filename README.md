@@ -12,15 +12,18 @@
 - iPad 7th Gen (2019)
 - iPod Touch 7th Gen (2019)
 
+## Requirements
+
+- Have a SHSH blob from a SHSH Blobs saver ready
+
+= Download a IPSW with same firmware version as the saved SHSH blob
+
+
 ## How to use:
 
-1. Have a SHSH blob from a SHSH Blobs saver ready
+1. Clone this git repository
 
-2. Download a IPSW with same firmware version as the saved SHSH blob
-
-3. Clone this git repository
-
-4. Open the Terminal `cd` into directory and then run:
+2. Open the Terminal `cd` into directory and then run:
 
 ```
 chmod +x restore.sh 
