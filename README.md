@@ -39,7 +39,7 @@ Make sure the SEP is compatible with the firmware version you are trying to rest
 
 MatthewPierson for the Checkm8-nonce-setter
 
-Tihmstar for FutureRestore
+tihmstar for FutureRestore, img4tool
 
 80036nd for this tool ;)
 
