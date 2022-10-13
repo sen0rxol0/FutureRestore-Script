@@ -27,7 +27,7 @@ else
   shsh=$1
 fi
 
-if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ]
+if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ];
 then
     _print_yellow "File verified as SHSH2 file, continuing ..."
 else
