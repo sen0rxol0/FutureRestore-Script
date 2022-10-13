@@ -53,7 +53,7 @@ fi
 mv futurerestore282 futurerestore
 chmod +x irecovery
 chmod +x futurerestore
-chmod +x install.sh
+chmod +x rerestore.sh
 chmod +x main.sh
 printf "\e[1;96m%s\e[0m\n" "Nonce-setter is starting"
 sleep 5
@@ -72,7 +72,7 @@ sleep 5
 echo ""
 printf "\e[1;96m%s\e[0m\n" "FutureRestore is starting"
 sleep 5
-./install.sh $2
+./rerestore.sh $2
 
 if [ $? -ne 0 ]
 then
