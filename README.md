@@ -28,6 +28,10 @@ chmod +x restore.sh
 ```
 ./restore.sh <SHSH> <IPSW>
 ```
+e.g
+```
+./restore.sh ~/Downloads/15.7-19H12.shsh2 ~/Downloads/15.7_19H12_Restore.ipsw
+```
 
 ## Note:
 
