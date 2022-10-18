@@ -67,11 +67,11 @@ then
   exit
 fi
 
+clear
 echo "Done setting SHSH nonce generator to device"
 echo "futurerestore can now restore to the firmware version that SHSH is valid for!"
 echo "Assuming that signed SEP and Baseband are compatible!"
 sleep 5
-clear
 printf "\e[1;96m%s\e[0m\n" "FutureRestore is starting"
 sleep 5
 ./rerestore.sh $2
