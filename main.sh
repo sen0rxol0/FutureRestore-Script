@@ -93,7 +93,7 @@ _print_yellow "Entering PWNREC mode"
 ./irecovery -f ./files/apticket.der
 ./irecovery -f ./files/ibss.img4
 
-if [ $(./irecovery -m | grep -c "Recovery") == 0 ]; then
+if [[ $(./irecovery -m | grep -c "Recovery") == 0 ]]; then
   ./irecovery -f ./files/ibec.img4
 fi
 
