@@ -22,17 +22,6 @@ rm -f ./files/*
 shsh=$1
 cp $shsh ./files/blob.shsh2
 
-_print_yellow "Getting generator from SHSH"
-generator=$(cat $shsh | grep "<string>0x" | cut -c10-27)
-
-if [ -z "$generator" ]
-then
-    echo "SHSH saved with https://shsh.host (will show generator) or https://tsssaver.1conan.com (in noapnonce folder) are acceptable"
-    _print_red "ERROR: SHSH does not contain a generator!"
-    exit 3
-fi
-
-echo "SHSH generator is: $generator"
 _print_blue "Please connect device in DFU mode."
 read -p "Press ENTER when ready to continue <-"
 
@@ -44,6 +33,17 @@ if [ -z "$device" ];then
 fi
 
 echo "Found device: $device"
+_print_yellow "Getting generator from SHSH"
+generator=$(cat $shsh | grep "<string>0x" | cut -c10-27)
+
+if [ -z "$generator" ]
+then
+    echo "SHSH saved with https://shsh.host (will show generator) or https://tsssaver.1conan.com (in noapnonce folder) are acceptable"
+    _print_red "ERROR: SHSH does not contain a generator!"
+    exit 3
+fi
+
+echo "SHSH generator is: $generator"
 _print_yellow "Extracting iBSS, iBEC files for device"
 dir_tmp=/tmp/.futurerestore_script_staging
 rm -rf $dir_tmp/
