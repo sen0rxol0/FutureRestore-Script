@@ -92,12 +92,14 @@ img4 -i ./files/ibec.patched -o ./files/ibec.img4 -A -M ./files/apticket.der -T 
 _print_yellow "Entering PWNREC mode"
 ./irecovery -f ./files/apticket.der
 ./irecovery -f ./files/ibss.img4
+./irecovery -f ./files/ibec.img4
+sleep 2
 
-if [[ $(./irecovery -m | grep -c "Recovery") == 0 ]]; then
-  ./irecovery -f ./files/ibec.img4
+if [[ $(./irecovery -m | grep -c "Recovery") == 1 ]]; then
+  ./irecovery -c "go"
+  sleep 3
 fi
 
-sleep 1
 _print_yellow "Entered PWNREC mode"
 sleep 4
 _print_yellow "Current nonce"
