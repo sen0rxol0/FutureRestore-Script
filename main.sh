@@ -44,7 +44,7 @@ then
 fi
 
 echo "SHSH generator is: $generator"
-_print_yellow "Extracting iBSS, iBEC files for device"
+_print_yellow "Extracting iBoot files for device"
 dir_tmp=/tmp/.futurerestore_script_staging
 rm -rf $dir_tmp/
 mkdir $dir_tmp
@@ -80,7 +80,7 @@ ibss=$(_extractFromManifest "iBSS")
 ibec=$(_extractFromManifest "iBEC")
 echo "iBSS: $ibss"
 echo "iBEC: $ibec"
-_print_yellow "Getting files ready to boot"
+_print_yellow "Getting files ready"
 ./gaster/gaster decrypt $dir_tmp/$ibss ./files/ibss.dec
 ./gaster/gaster decrypt $dir_tmp/$ibec ./files/ibec.dec
 ./kairos/kairos ./files/ibss.dec ./files/ibss.patched
