@@ -97,8 +97,7 @@ sleep 2
 ./irecovery -c "go"
 sleep 3
 _print_yellow "Entered PWNREC mode"
-sleep 4
-_print_yellow "Current nonce"
+echo "Current nonce"
 ./irecovery -q | grep "NONC"
 echo "Setting nonce to $generator"
 ./irecovery -c "setenv com.apple.System.boot-nonce $generator"
@@ -111,8 +110,8 @@ sleep 1
 sleep 1
 ./irecovery -c "reset"
 _print_yellow "Waiting for device to restart into recovery mode"
-sleep 7
-_print_yellow "New nonce"
+sleep 10
+echo "New nonce"
 ./irecovery -q | grep "NONC"
 
 exit 0
