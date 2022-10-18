@@ -1,4 +1,10 @@
 #!/bin/bash
-clear
-./futurerestore -t ./files/blob.shsh2 --latest-sep --latest-baseband $1
-exit $?
+echo "Waiting for restore to be finished..."
+touch restore.log
+./futurerestore282 -t ./files/blob.shsh2 --latest-sep --latest-baseband $1 >restore.log 2>&1
+
+if [ $(tail restore.log | grep -c "Status: Restore Finished") == 0 ]; then
+  exit 1
+fi
+
+exit 0
