@@ -94,12 +94,8 @@ _print_yellow "Entering PWNREC mode"
 ./irecovery -f ./files/ibss.img4
 ./irecovery -f ./files/ibec.img4
 sleep 2
-
-if [[ $(./irecovery -m | grep -c "Recovery") == 1 ]]; then
-  ./irecovery -c "go"
-  sleep 3
-fi
-
+./irecovery -c "go"
+sleep 3
 _print_yellow "Entered PWNREC mode"
 sleep 4
 _print_yellow "Current nonce"
