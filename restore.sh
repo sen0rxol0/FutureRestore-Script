@@ -3,7 +3,7 @@
 if [ ! -d ./gaster ]
 then
   git clone -q https://github.com/0x7ff/gaster.git
-  cd gaster && make > /dev/null 2>&1;
+  cd gaster && make >/dev/null 2>&1;
   cd ..
   chmod 755 gaster/gaster
   # xattr -d com.apple.quarantine gaster/gaster &> /dev/null
@@ -12,7 +12,7 @@ fi
 if [ ! -d ./kairos ]
 then
   git clone -q https://github.com/dayt0n/kairos.git
-  cd kairos && make > /dev/null 2>&1;
+  cd kairos && make >/dev/null 2>&1;
   cd ..
   chmod 755 kairos/kairos
 fi
