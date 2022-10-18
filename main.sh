@@ -94,9 +94,11 @@ _print_yellow "Entering PWNREC mode"
 ./irecovery -f ./files/ibss.img4
 ./irecovery -f ./files/ibec.img4
 sleep 2
+if [[ $device == *"iPhone9,"* ]] || [[ $device == *"iPhone10,"* ]] || [[ $device == *"iPad7,"* ]] || [[ $device == "iPod9,1" ]]; then
 ./irecovery -c "go"
-sleep 3
+fi
 _print_yellow "Entered PWNREC mode"
+sleep 5
 echo "Current nonce"
 ./irecovery -q | grep "NONC"
 echo "Setting nonce to $generator"
