@@ -3,16 +3,16 @@
 if [ ! -d ./gaster ]
 then
   git clone -q https://github.com/0x7ff/gaster.git
-  cd gaster && make 1> /dev/null;
+  cd gaster && make > /dev/null 2>&1;
   cd ..
   chmod 755 gaster/gaster
-  # xattr -d com.apple.quarantine gaster/gaster 1> /dev/null
+  # xattr -d com.apple.quarantine gaster/gaster &> /dev/null
 fi
 
 if [ ! -d ./kairos ]
 then
   git clone -q https://github.com/dayt0n/kairos.git
-  cd kairos && make 1> /dev/null;
+  cd kairos && make > /dev/null 2>&1;
   cd ..
   chmod 755 kairos/kairos
 fi
@@ -51,8 +51,8 @@ else
 fi
 
 mv futurerestore282 futurerestore
-xattr -d com.apple.quarantine irecovery 1> /dev/null
-xattr -d com.apple.quarantine futurerestore 1> /dev/null
+xattr -d com.apple.quarantine irecovery > /dev/null 2>&1
+xattr -d com.apple.quarantine futurerestore > /dev/null 2>&1
 chmod +x irecovery
 chmod +x futurerestore
 chmod +x rerestore.sh
