@@ -32,7 +32,7 @@ if [ -z "$device" ];then
     exit 2
 fi
 
-echo "Found device: $device"
+echo "Device identified as: $device"
 _print_yellow "Getting generator from SHSH"
 generator=$(cat $shsh | grep "<string>0x" | cut -c10-27)
 
@@ -98,7 +98,7 @@ if [[ $(./irecovery -m | grep -c "Recovery") == 0 ]]; then
 fi
 
 sleep 1
-_print_blue "Entered PWNREC mode"
+_print_yellow "Entered PWNREC mode"
 sleep 4
 _print_yellow "Current nonce"
 ./irecovery -q | grep "NONC"
