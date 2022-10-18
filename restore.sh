@@ -75,7 +75,6 @@ sleep 5
 printf "\e[1;96m%s\e[0m\n" "FutureRestore is starting"
 sleep 5
 ./rerestore.sh $2
-rm restore.log
 
 if [ $? -ne 0 ]
 then
