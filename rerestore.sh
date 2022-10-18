@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Waiting for restore to be finished..."
+echo "Waiting while device is being restored...."
 touch restore.log
 ./futurerestore282 -t ./files/blob.shsh2 --latest-sep --latest-baseband $1 >restore.log 2>&1
 
