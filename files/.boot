@@ -1,1 +1,1 @@
-required data sent to bootchain
+data sent to device in pwned DFU to initialise bootchain 
