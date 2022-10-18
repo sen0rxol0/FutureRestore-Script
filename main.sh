@@ -89,6 +89,7 @@ _print_yellow "Getting files ready to boot"
 plutil -extract "ApImg4Ticket" xml1 -o - $shsh | xmllint -xpath '/plist/data/text()' - | base64 -D > ./files/apticket.der
 img4 -i ./files/ibss.patched -o ./files/ibss.img4 -A -M ./files/apticket.der -T ibss
 img4 -i ./files/ibec.patched -o ./files/ibec.img4 -A -M ./files/apticket.der -T ibec
+./irecovery -f ./files/text.txt
 ./irecovery -f ./files/ibss.img4
 ./irecovery -f ./files/ibec.img4
 _print_yellow "Loaded patched images"
