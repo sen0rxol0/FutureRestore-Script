@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 color_red="\e[1;91m"
 color_yellow="\e[1;93m"
