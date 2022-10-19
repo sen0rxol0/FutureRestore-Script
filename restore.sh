@@ -67,6 +67,7 @@ then
   exit
 fi
 
+sleep 5
 clear
 echo "Done setting SHSH nonce generator to device"
 echo "futurerestore can now restore to the firmware version that SHSH is valid for!"
