@@ -92,9 +92,15 @@ img4 -i ./files/ibec.patched -o ./files/ibec.img4 -A -M ./files/apticket.der -T 
 _print_yellow "Entering PWNREC mode"
 ./irecovery -f ./files/.boot
 ./irecovery -f ./files/ibss.img4
-if [[ $device == *"iPhone6,"* ]] || [[ $device == *"iPhone7,"* ]] || [[ $device == *"iPhone8,"* ]] || [[ $device == *"iPad4,"* ]] || [[ $device == *"iPad5,"* ]]; then
-./irecovery -f ./files/ibec.img4
-fi
+
+for did in iPhone{6..8} iPad{4..5}
+do
+  if [[ $device == *"$did,"* ]]; then
+    ./irecovery -f ./files/ibec.img4
+    break
+  fi
+done
+
 _print_yellow "Entered PWNREC mode"
 sleep 5
 echo "Current nonce"
