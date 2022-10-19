@@ -93,7 +93,7 @@ _print_yellow "Entering PWNREC mode"
 ./irecovery -f ./files/.boot
 ./irecovery -f ./files/ibss.img4
 
-for did in iPhone{6..8} iPad{4..5}
+for did in iPhone{6..8} iPad{4..6}
 do
   if [[ $device == *"$did,"* ]]; then
     ./irecovery -f ./files/ibec.img4
