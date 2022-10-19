@@ -25,12 +25,13 @@ cp $shsh ./files/blob.shsh2
 _print_blue "Please connect device in DFU mode."
 read -p "Press ENTER when ready to continue <-"
 
-device=$(./irecovery -q | grep "PRODUCT" | cut -f 2 -d ":" | cut -c 2-)
-
-if [ -z "$device" ];then
+if [ $(./irecovery -m | grep -c "DFU") != 1 ]
+then
     _print_red "ERROR: No device found."
-    exit 2
+    exit 4
 fi
+
+device=$(./irecovery -q | grep "PRODUCT" | cut -f 2 -d ":" | cut -c 2-)
 
 echo "Device identified as: $device"
 _print_yellow "Getting generator from SHSH"
