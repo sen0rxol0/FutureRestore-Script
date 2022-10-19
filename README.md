@@ -35,6 +35,7 @@ e.g
 ## Note:
 
 Make sure the SEP is compatible with the firmware version being restored.
+
 Make sure device has Baseband (SIM capability)
 
 > WARNING: This restore will erase your device data.
