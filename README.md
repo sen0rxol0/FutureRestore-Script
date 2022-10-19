@@ -6,7 +6,7 @@
 - ~iPad Mini (2/3/4)~
 - ~iPad (6th Gen/7th Gen/Pro)~
 
-Maybe other devices not listed to ;)
+Maybe other devices not listed to =)
  
 ## Requirements:
 
