@@ -2,9 +2,9 @@
 
 ## Supported Devices:
 - iPhone (5/5s/6/6s/6s+/SE/7/7+/8/8+/X)
-- iPad Air (1/2)
-- iPad Mini (2/3/4)
-- iPad (6th Gen/7th Gen/Pro)
+- ~iPad Air (1/2)~
+- ~iPad Mini (2/3/4)~
+- ~iPad (6th Gen/7th Gen/Pro)~
 
 Maybe other devices not listed to ;)
  
@@ -35,8 +35,6 @@ e.g
 ## Note:
 
 Make sure the SEP is compatible with the firmware version being restored.
-
-Make sure device has Baseband (SIM capability).
 
 > WARNING: This restore will erase your device data.
 
