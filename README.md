@@ -12,7 +12,7 @@ Maybe other devices not listed to ;)
 
 - SHSH blob file from a SHSH Blobs saver.
 - Downloaded IPSW file with same firmware version as the saved SHSH blob.
-- macOS system
+- macOS system.
 
 ## How to use:
 
@@ -36,7 +36,7 @@ e.g
 
 Make sure the SEP is compatible with the firmware version being restored.
 
-Make sure device has Baseband (SIM capability)
+Make sure device has Baseband (SIM capability).
 
 > WARNING: This restore will erase your device data.
 
