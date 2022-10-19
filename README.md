@@ -7,7 +7,7 @@
 - iPad (6th Gen/7th Gen/Pro)
 
 Maybe other devices not listed to ;)
-
+ 
 ## Requirements:
 
 - SHSH blob file from a SHSH Blobs saver.
@@ -35,6 +35,7 @@ e.g
 ## Note:
 
 Make sure the SEP is compatible with the firmware version being restored.
+Make sure device has Baseband (SIM capability)
 
 > WARNING: This restore will erase your device data.
 
