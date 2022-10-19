@@ -92,7 +92,7 @@ img4 -i ./files/ibec.patched -o ./files/ibec.img4 -A -M ./files/apticket.der -T 
 _print_yellow "Entering PWNREC mode"
 ./irecovery -f ./files/.boot
 ./irecovery -f ./files/ibss.img4
-if [[ $device == *"iPhone6,"* ]] || [[ $device == *"iPad4,"* ]]; then
+if [[ $device == *"iPhone6,"* ]] || [[ $device == *"iPhone7,"* ]] || [[ $device == *"iPhone8,"* ]] || [[ $device == *"iPad4,"* ]]; then
 ./irecovery -f ./files/ibec.img4
 fi
 _print_yellow "Entered PWNREC mode"
