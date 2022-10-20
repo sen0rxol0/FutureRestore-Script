@@ -1,7 +1,7 @@
 # FutureRestore Script
 
 ## Supported Devices:
-- iPhone (5/5s/6/6s/6s+/SE/7/7+/8/8+/X)
+- iPhone A7 - A11
 - ~iPad Air (1/2)~
 - ~iPad Mini (2/3/4)~
 - ~iPad (6th Gen/7th Gen/Pro)~
