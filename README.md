@@ -11,7 +11,7 @@ Maybe other devices not listed too =)
 ## Requirements:
 
 - SHSH blob file from a SHSH Blobs saver.
-- Downloaded IPSW file with same firmware version as the saved SHSH blob.
+- IPSW file with same firmware version as the saved SHSH blob.
 - macOS system.
 
 ## How to use:
