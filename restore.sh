@@ -34,18 +34,16 @@ fi
 
 if [ -z "$1" ]
 then
-  echo "Please drag and drop SHSH file into terminal:"
+  echo "Drag and drop SHSH file into terminal:"
   read shsh
 else
   shsh=$1
 fi
 
-if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ];
+if [ ${shsh: -6} != ".shsh2" ] || [ ${shsh: -5} != ".shsh" ];
 then
-    echo "SHSH file verified as valid, continuing ..."
-else
-    echo "[Exiting] Please ensure that the file extension is either .shsh or .shsh2 and retry"
-    exit
+  echo "[Exiting] Ensure that SHSH file extension is either .shsh or .shsh2"
+  exit    
 fi
 
 mv futurerestore282 futurerestore
@@ -67,7 +65,7 @@ fi
 
 clear
 echo "Done setting SHSH nonce generator to device"
-echo "futurerestore can now restore to the firmware version that SHSH is valid for!"
+echo "FutureRestore can now restore to the firmware version that SHSH is valid for!"
 echo "Assuming that signed SEP and Baseband are compatible!"
 sleep 1
 printf "\e[1;96m%s\e[0m\n" "FutureRestore is starting"
