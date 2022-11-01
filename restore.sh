@@ -16,12 +16,10 @@ then
 fi
 
 if [ ! -e "/usr/local/bin/img4" ]; then
-  curl --progress-bar -o img4lib.tar.gz -L https://github.com/xerub/img4lib/releases/download/1.0/img4lib-2020-10-27.tar.gz
-  tar -xf img4lib.tar.gz
+  curl --progress-bar -o img4lib.tar.gz -L https://github.com/xerub/img4lib/releases/download/1.0/img4lib-2020-10-27.tar.gz && tar -xf img4lib.tar.gz;
   mv img4lib/apple/img4 /usr/local/bin/ && mv img4lib/apple/libimg4.a /usr/local/lib/;
   rm -rf img4lib/ && rm img4lib.tar.gz;
-  chmod 755 /usr/local/bin/img4
-  xattr -d com.apple.quarantine /usr/local/bin/img4
+  chmod 755 /usr/local/bin/img4 && xattr -d com.apple.quarantine /usr/local/bin/img4;
 fi
 
 clear
