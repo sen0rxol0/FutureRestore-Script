@@ -22,7 +22,7 @@ rm -f ./files/*
 shsh=$1
 cp $shsh ./files/blob.shsh2
 
-_print_blue "Please connect device in DFU mode."
+_print_yellow "Please connect device in DFU mode."
 read -p "Press ENTER when ready to continue <-"
 
 if [ $(./irecovery -m | grep -c "DFU") != 1 ]
