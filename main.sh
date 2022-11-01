@@ -54,12 +54,16 @@ unzip -q $2 -x *.dmg -d $dir_tmp/
 device_model=$(./irecovery -q | grep "MODEL" | cut -f 2 -d ":" | cut -c 2-)
 manifest_index=0
 ret=0
-until [[ $ret != 0 ]]; do
+
+until [[ $ret != 0 ]];
+do
   manifest=$(plutil -extract "BuildIdentities.$manifest_index.Manifest" xml1 -o - $dir_tmp/BuildManifest.plist)
   ret=$?
-  if [ $ret == 0 ]; then
+  if [ $ret == 0 ]
+  then
     count_manifest=$(echo $manifest | grep -c $device_model)
-    if [ $count_manifest == 0 ]; then
+    if [ $count_manifest == 0 ]
+    then
       ((manifest_index++))
     else
       ret=1
