@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 echo "Waiting while device is being restored ..."
 touch restore.log
-./futurerestore282 -t ./files/blob.shsh2 --latest-sep --latest-baseband $1 >restore.log 2>&1 &
+./futurerestore -t ./files/blob.shsh2 --latest-sep --latest-baseband $1 >restore.log 2>&1 &
 PID=$!
 i=0
 sp="/-\|"
