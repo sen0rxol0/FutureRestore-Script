@@ -121,5 +121,6 @@ sleep 10
 echo "New nonce"
 ./irecovery -q | grep "NONC"
 sleep 2
+echo
 
 exit 0
