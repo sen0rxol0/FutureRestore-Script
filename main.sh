@@ -93,11 +93,12 @@ img4 -i ./files/ibec.patched -o ./files/ibec.img4 -A -M ./files/apticket.der -T 
 _print_yellow "Entering PWNREC mode"
 ./irecovery -f ./files/.boot
 ./irecovery -f ./files/ibss.img4
+./irecovery -f ./files/ibec.img4
 
-for did in iPhone{6..8} iPad{4..6}
+for did in iPhone9 iPhone10
 do
   if [[ $device == *"$did,"* ]]; then
-    ./irecovery -f ./files/ibec.img4
+    ./irecovery -c "go"
     break
   fi
 done
@@ -117,7 +118,7 @@ sleep 1
 sleep 1
 ./irecovery -c "reset"
 _print_yellow "Waiting for device to restart into recovery mode"
-sleep 10
+sleep 7
 echo "New nonce"
 ./irecovery -q | grep "NONC"
 sleep 2
