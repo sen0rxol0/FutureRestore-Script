@@ -84,6 +84,7 @@ echo "iBEC: $ibec"
 _print_yellow "Getting files ready"
 ./gaster/gaster decrypt $dir_tmp/$ibss ./files/ibss.dec
 ./gaster/gaster decrypt $dir_tmp/$ibec ./files/ibec.dec
+./gaster/gaster reset
 ./kairos/kairos ./files/ibss.dec ./files/ibss.patched
 ./kairos/kairos ./files/ibec.dec ./files/ibec.patched -n
 # Thanks to: https://github.com/Ralph0045/SSH-Ramdisk-Maker-and-Loader/blob/a2ad9a948342106a590bb5444694aa272a5cf1a0/Ramdisk_Maker.sh#L159
@@ -91,7 +92,7 @@ plutil -extract "ApImg4Ticket" xml1 -o - $shsh | xmllint -xpath '/plist/data/tex
 img4 -i ./files/ibss.patched -o ./files/ibss.img4 -A -M ./files/apticket.der -T ibss
 img4 -i ./files/ibec.patched -o ./files/ibec.img4 -A -M ./files/apticket.der -T ibec
 _print_yellow "Entering PWNREC mode"
-./irecovery -f ./files/.boot
+#./irecovery -f ./files/.boot
 ./irecovery -f ./files/ibss.img4
 ./irecovery -f ./files/ibec.img4
 
