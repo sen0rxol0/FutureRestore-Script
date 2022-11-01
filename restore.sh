@@ -38,7 +38,7 @@ else
   shsh=$1
 fi
 
-if [ ${shsh: -6} != ".shsh2" ] || [ ${shsh: -5} != ".shsh" ];
+if [ ${shsh: -6} != ".shsh2" ] && [ ${shsh: -5} != ".shsh" ];
 then
   echo "[Exiting] Ensure that SHSH file extension is either .shsh or .shsh2"
   exit    
