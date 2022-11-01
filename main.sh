@@ -120,5 +120,6 @@ _print_yellow "Waiting for device to restart into recovery mode"
 sleep 10
 echo "New nonce"
 ./irecovery -q | grep "NONC"
+sleep 2
 
 exit 0
