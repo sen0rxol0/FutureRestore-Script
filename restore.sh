@@ -23,6 +23,12 @@ then
   chmod 755 /usr/local/bin/img4 && xattr -d com.apple.quarantine /usr/local/bin/img4;
 fi
 
+if [ ! -e ./kairos/kairos ] || [ ! -e ./gaster/gaster ];
+then
+  echo "[EXITING] ./kairos/kairos or ./gaster/gaster is missing."
+  exit
+fi
+
 clear
 
 if [ -z "$2" ]
@@ -41,7 +47,7 @@ fi
 
 if [ ${shsh: -6} != ".shsh2" ] && [ ${shsh: -5} != ".shsh" ];
 then
-  echo "[Exiting] Ensure that SHSH file extension is either .shsh or .shsh2"
+  echo "[EXITING] Ensure that SHSH file extension is either .shsh or .shsh2"
   exit    
 fi
 
@@ -58,7 +64,7 @@ sleep 5
 
 if [ $? -ne 0 ]
 then
-  echo "[Exiting] Device is not ready to be restored!"
+  echo "[EXITING] Device is not ready to be restored!"
   exit
 fi
 
@@ -72,7 +78,7 @@ sleep 5
 
 if [ $? -ne 0 ]
 then
-  echo "[Exiting] FutureRestore failed to restore device!"
+  echo "[EXITING] FutureRestore failed to restore device!"
   exit
 fi
 
