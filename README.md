@@ -52,4 +52,4 @@ xerub for img4lib
 
 dayt0n for kairos
 
-sen0rxol0 for the improvement
+sen0rxol0 for this fork
