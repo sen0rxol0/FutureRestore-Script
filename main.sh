@@ -95,9 +95,10 @@ plutil -extract "ApImg4Ticket" xml1 -o - $shsh | xmllint -xpath '/plist/data/tex
 img4 -i ./files/ibss.patched -o ./files/ibss.img4 -A -M ./files/apticket.der -T ibss
 img4 -i ./files/ibec.patched -o ./files/ibec.img4 -A -M ./files/apticket.der -T ibec
 _print_yellow "Entering PWNREC mode"
-./gaster/gaster load ./files/ibss.img4 ./files/ibec.img4
-#./irecovery -f ./files/ibss.img4
-#./irecovery -f ./files/ibec.img4
+./gaster/gaster reset
+sleep 2
+./irecovery -f ./files/ibss.img4
+./irecovery -f ./files/ibec.img4
 
 #for did in iPhone9 iPhone10
 #do
