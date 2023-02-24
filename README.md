@@ -1,20 +1,15 @@
-# FutureRestore Script
+## FutureRestore Script
 
-## Supported Devices:
-- iPhone A7 - A11
-- ~iPad Air (1/2)~
-- ~iPad Mini (2/3/4)~
-- ~iPad (6th Gen/7th Gen/Pro)~
-
-Maybe other devices not listed too =)
+### Supported Devices:
+- A7 - A11
  
-## Requirements:
+### Requirements:
 
 - SHSH blob file from a SHSH Blobs saver.
 - IPSW file with same firmware version as the saved SHSH blob.
 - macOS system.
 
-## How to use:
+### How to use:
 
 1. Clone this git repository
 
@@ -32,13 +27,13 @@ e.g
 ./restore.sh ~/Downloads/15.7-19H12.shsh2 ~/Downloads/15.7_19H12_Restore.ipsw
 ```
 
-## Note:
+### Note:
 
 Make sure the SEP is compatible with the firmware version being restored.
 
 > WARNING: This restore will erase your device data.
 
-## Credits:
+### Credits:
 
 MatthewPierson for the Checkm8-nonce-setter
 
