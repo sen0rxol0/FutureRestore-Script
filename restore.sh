@@ -51,14 +51,14 @@ then
   exit    
 fi
 
-mv futurerestore282 futurerestore
+mv futurerestore304 futurerestore
 xattr -d com.apple.quarantine irecovery >/dev/null 2>&1
 xattr -d com.apple.quarantine futurerestore >/dev/null 2>&1
 chmod +x irecovery
 chmod +x futurerestore
 chmod +x rerestore.sh
 chmod +x main.sh
-printf "\e[1;96m%s\e[0m\n" "Nonce-setter is starting"
+printf "\e[1;96m%s\e[0m\n" "SHSH nonce generator setter is starting"
 sleep 5
 ./main.sh $1 $2
 
