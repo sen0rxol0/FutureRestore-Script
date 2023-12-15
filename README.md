@@ -2,8 +2,8 @@
 
 - Download SSHRD_Script
 - Boot ramdisk
-- Dump SHSH file
-- Download IPSW file
+- Dump SHSH blob file
+- Download IPSW restore file
 - Start FutureRestore Script
 
 ## FutureRestore Script
