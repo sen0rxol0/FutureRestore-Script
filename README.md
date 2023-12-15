@@ -13,8 +13,8 @@
  
 ### Requirements:
 
-- SHSH blob file from a SHSH Blobs saver.
-- IPSW file with same firmware version as the saved SHSH blob.
+- SHSH blob file.
+- IPSW file with the same firmware version as SHSH.
 - macOS system.
 
 ### How to use:
