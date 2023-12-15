@@ -1,3 +1,11 @@
+# How to restore iOS device to same firmware version ...
+
+- Download SSHRD_Script
+- Boot ramdisk
+- Dump SHSH file
+- Download IPSW file
+- Start FutureRestore Script
+
 ## FutureRestore Script
 
 ### Supported Devices:
