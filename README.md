@@ -43,14 +43,14 @@ Make sure the SEP is compatible with the firmware version being restored.
 
 ### Credits:
 
-MatthewPierson for the Checkm8-nonce-setter
+MatthewPierson/Checkm8-nonce-setter
 
-tihmstar for FutureRestore
+tihmstar/FutureRestore
 
-80036nd for this tool ;)
+80036nd/FutureRestore-Script
 
-xerub for img4lib
+xerub/img4lib
 
-0x7ff for gaster
+0x7ff/gaster
 
-dayt0n for kairos
+dayt0n/kairos
