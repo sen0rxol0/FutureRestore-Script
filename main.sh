@@ -17,7 +17,7 @@ _print_yellow() {
 printf "$color_yellow****** %s$color_reset\n" "$1"
 }
 
-clear
+printf "\n"
 rm -f ./files/*
 shsh=$1
 cp $shsh ./files/blob.shsh2
@@ -25,13 +25,13 @@ cp $shsh ./files/blob.shsh2
 _print_yellow "Please connect device in DFU mode."
 read -p "Press ENTER when ready to continue <-"
 
-if [ $(./irecovery -m | grep -c "DFU") != 1 ]
+if [ $(irecovery -m | grep -c "DFU") != 1 ]
 then
     _print_red "ERROR: No device found."
     exit 4
 fi
 
-device=$(./irecovery -q | grep "PRODUCT" | cut -f 2 -d ":" | cut -c 2-)
+device=$(irecovery -q | grep "PRODUCT" | cut -f 2 -d ":" | cut -c 2-)
 
 echo "Device identified as: $device"
 _print_yellow "Getting generator from SHSH"
@@ -51,7 +51,7 @@ rm -rf $dir_tmp/
 mkdir $dir_tmp
 unzip -q $2 -x *.dmg -d $dir_tmp/
 
-device_model=$(./irecovery -q | grep "MODEL" | cut -f 2 -d ":" | cut -c 2-)
+device_model=$(irecovery -q | grep "MODEL" | cut -f 2 -d ":" | cut -c 2-)
 manifest_index=0
 ret=0
 
@@ -97,13 +97,13 @@ img4 -i ./files/ibec.patched -o ./files/ibec.img4 -A -M ./files/apticket.der -T 
 _print_yellow "Entering PWNREC mode"
 ./gaster/gaster reset
 sleep 2
-./irecovery -f ./files/ibss.img4
-./irecovery -f ./files/ibec.img4
+irecovery -f ./files/ibss.img4
+irecovery -f ./files/ibec.img4
 
 #for did in iPhone9 iPhone10
 #do
 #  if [[ $device == *"$did,"* ]]; then
-#    ./irecovery -c "go"
+#    irecovery -c "go"
 #    break
 #  fi
 #done
@@ -111,21 +111,21 @@ sleep 2
 _print_yellow "Entered PWNREC mode"
 sleep 5
 echo "Current nonce"
-./irecovery -q | grep "NONC"
+irecovery -q | grep "NONC"
 echo "Setting nonce to $generator"
-./irecovery -c "setenv com.apple.System.boot-nonce $generator"
+irecovery -c "setenv com.apple.System.boot-nonce $generator"
 sleep 1
-./irecovery -c "saveenv"
+irecovery -c "saveenv"
 sleep 1
-./irecovery -c "setenv auto-boot false"
+irecovery -c "setenv auto-boot false"
 sleep 1
-./irecovery -c "saveenv"
+irecovery -c "saveenv"
 sleep 1
-./irecovery -c "reset"
+irecovery -c "reset"
 _print_yellow "Waiting for device to restart into recovery mode"
 sleep 7
 echo "New nonce"
-./irecovery -q | grep "NONC"
+irecovery -q | grep "NONC"
 echo
 sleep 5
 exit 0
