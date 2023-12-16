@@ -50,10 +50,10 @@ then
   exit    
 fi
 
-mv futurerestore304 futurerestore
-xattr -d com.apple.quarantine irecovery >/dev/null 2>&1
+mv futurerestore308 futurerestore
+# xattr -d com.apple.quarantine irecovery >/dev/null 2>&1
 xattr -d com.apple.quarantine futurerestore >/dev/null 2>&1
-chmod +x irecovery
+# chmod +x irecovery
 chmod +x futurerestore
 chmod +x rerestore.sh
 chmod +x main.sh
@@ -67,7 +67,7 @@ then
   exit
 fi
 
-clear
+printf "\n"
 echo "Done setting SHSH nonce generator to device"
 echo "FutureRestore can now restore to the firmware version that SHSH is valid for!"
 echo "Assuming that signed SEP and Baseband are compatible!"
@@ -81,7 +81,7 @@ then
   exit
 fi
 
-clear
+printf "\n"
 sleep 2
 printf "\e[1;96m%s\e[0m\n" "DONE!"
 exit
