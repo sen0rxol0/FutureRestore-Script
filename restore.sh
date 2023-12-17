@@ -30,19 +30,13 @@ fi
 
 clear
 
-if [ -z "$2" ]
+if [ -z "$2" ] || [ -z "$1" ]
 then
   echo "USAGE: $0 <Path to SHSH file> <Path to IPSW file>"
   exit
 fi
 
-if [ -z "$1" ]
-then
-  echo "Drag and drop SHSH file into terminal:"
-  read shsh
-else
-  shsh=$1
-fi
+shsh=$1
 
 if [ ${shsh: -6} != ".shsh2" ] && [ ${shsh: -5} != ".shsh" ];
 then
