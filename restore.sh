@@ -28,6 +28,17 @@ then
   exit
 fi
 
+if [ ! -e /usr/local/bin/irecovery ]
+then
+mkdir libirecovery/
+unzip libirecovery-latest_macOS.zip
+tar -xvf libirecovery.tar -C libirecovery/
+mv -f libirecovery/usr/local/bin/irecovery /usr/local/bin/
+mv -f libirecovery/usr/local/lib/libirecovery* /usr/local/lib/
+mv -f libirecovery/usr/local/lib/pkgconfig/* /usr/local/lib/pkgconfig/
+mv -f libirecovery/usr/local/include/* /usr/local/include/
+fi
+
 clear
 
 if [ -z "$2" ] || [ -z "$1" ]
@@ -45,9 +56,7 @@ then
 fi
 
 mv futurerestore308 futurerestore
-# xattr -d com.apple.quarantine irecovery >/dev/null 2>&1
 xattr -d com.apple.quarantine futurerestore >/dev/null 2>&1
-# chmod +x irecovery
 chmod +x futurerestore
 chmod +x rerestore.sh
 chmod +x main.sh
