@@ -14,6 +14,7 @@
 - SHSH blob file.
 - IPSW file with the same firmware version as SHSH.
 - macOS system.
+- Installed img4, irecovery
 
 ### How to use:
 
