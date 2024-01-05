@@ -14,7 +14,7 @@
 - SHSH blob file.
 - IPSW file with the same firmware version as SHSH.
 - macOS system.
-- Installed img4, irecovery
+- Installed [img4](https://github.com/xerub/img4lib), [irecovery](https://github.com/libimobiledevice/libirecovery)
 
 ### How to use:
 
