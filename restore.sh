@@ -30,13 +30,8 @@ fi
 
 if [ ! -e /usr/local/bin/irecovery ]
 then
-mkdir libirecovery/
-unzip libirecovery-latest_macOS.zip
-tar -xvf libirecovery.tar -C libirecovery/
-mv -f libirecovery/usr/local/bin/irecovery /usr/local/bin/
-mv -f libirecovery/usr/local/lib/libirecovery* /usr/local/lib/
-mv -f libirecovery/usr/local/lib/pkgconfig/* /usr/local/lib/pkgconfig/
-mv -f libirecovery/usr/local/include/* /usr/local/include/
+  echo "[EXITING] irecovery is missing."
+  exit
 fi
 
 clear
