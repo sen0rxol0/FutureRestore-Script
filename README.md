@@ -1,3 +1,5 @@
+> Disclaimer ! THIS MIGHT NOT WORK ON YOUR MAC COMPUTER.
+
 # How to restore iOS device to same firmware version
 
 - Dump SHSH blob file in SSH ramdisk
